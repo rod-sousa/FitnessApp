@@ -1,5 +1,7 @@
 package rodsousa.dev.br.fitnessapp.ui.presentation.fragment
 
+import android.app.AlertDialog
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +9,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat.getSystemService
 import rodsousa.dev.br.fitnessapp.R
 import rodsousa.dev.br.fitnessapp.databinding.FragmentImcBinding
 import rodsousa.dev.br.fitnessapp.ui.viewmodel.FitnessViewModel
@@ -46,9 +50,25 @@ class ImcFragment : Fragment() {
 
             val result = calculateImc(weightDouble, heightDouble)
 
-            val responseStringImc = imcResponse(result)
-            Toast.makeText(context, responseStringImc, Toast.LENGTH_SHORT).show()
+            alertDialogMessage(result)
+
+            hideKeyboard()
         }
+    }
+
+    private fun hideKeyboard() {
+        val service = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        service.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0)
+    }
+
+    private fun alertDialogMessage(result: Double) {
+        AlertDialog.Builder(context)
+            .setTitle(getString(R.string.imc_response, result))
+            .setMessage(imcResponse(result))
+            .setPositiveButton(android.R.string.ok) { dialog, witch ->
+                //TODO
+            }
+            .create().show()
     }
 
     @StringRes
@@ -65,11 +85,9 @@ class ImcFragment : Fragment() {
         }
     }
 
-    private fun calculateImc(weight: Double, height: Double) : Double {
-        return weight / ( (height/100) * (height/100) )
-    }
+    private fun calculateImc(weight: Double, height: Double) =
+        weight / ( (height/100) * (height/100) )
 
-    private fun validate(weight: Double, height: Double): Boolean{
-        return weight != 0.0 && height != 0.0
-    }
+    private fun validate(weight: Double, height: Double) =
+        weight != 0.0 && height != 0.0
 }
