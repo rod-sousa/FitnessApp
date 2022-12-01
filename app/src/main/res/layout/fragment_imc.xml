@@ -10,6 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/myToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
         <TextView
             android:id="@+id/text_imc_desc"
             android:layout_width="0dp"
@@ -28,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="@string/weight"
-            android:inputType="number"
-            android:maxLength="3"
+            android:inputType="numberDecimal"
+            android:maxLength="6"
             android:textSize="@dimen/text_size"
             app:layout_constraintEnd_toEndOf="@id/text_imc_desc"
             app:layout_constraintStart_toStartOf="@id/text_imc_desc"

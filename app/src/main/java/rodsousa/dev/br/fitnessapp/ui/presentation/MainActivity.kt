@@ -5,7 +5,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import rodsousa.dev.br.fitnessapp.R
 import rodsousa.dev.br.fitnessapp.databinding.ActivityMainBinding
-import rodsousa.dev.br.fitnessapp.ui.presentation.fragment.HomeFragment
+import rodsousa.dev.br.fitnessapp.ui.presentation.fragment.HistoryFragment
+import rodsousa.dev.br.fitnessapp.ui.presentation.fragment.MoreInformationFragment
 import rodsousa.dev.br.fitnessapp.ui.presentation.fragment.ImcFragment
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        replaceFragment(HomeFragment())
+        replaceFragment(ImcFragment())
         setContentView(binding.root)
 
         selectedItemBottomNav()
@@ -24,8 +25,9 @@ class MainActivity : AppCompatActivity() {
     private fun selectedItemBottomNav() {
         binding.bottomNv.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.home -> replaceFragment(HomeFragment())
+                R.id.information -> replaceFragment(MoreInformationFragment())
                 R.id.imc -> replaceFragment(ImcFragment())
+                R.id.history -> replaceFragment(HistoryFragment())
             }
             true
         }
