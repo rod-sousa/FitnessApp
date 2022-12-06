@@ -3,4 +3,8 @@
     <dimen name="horizontal_margin">30dp</dimen>
     <dimen name="title_size">22sp</dimen>
     <dimen name="text_size">16sp</dimen>
+    <dimen name="marginBorder">8dp</dimen>
+    <dimen name="marginComponents">16dp</dimen>
+    <dimen name="borderRadius">4dp</dimen>
+    <dimen name="elevation">4dp</dimen>
 </resources>
