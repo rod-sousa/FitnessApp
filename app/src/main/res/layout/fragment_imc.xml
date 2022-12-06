@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.presentation.fragment.ImcFragment">
 
     <LinearLayout
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/marginBorder"
-            android:text="Dados"/>
+            android:text="Dados" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_data"
@@ -73,21 +74,21 @@
                     android:id="@+id/iv_men"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_men"
                     android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_men"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/iv_woman"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/edt_age" />
+                    app:layout_constraintStart_toEndOf="@+id/edt_age"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/iv_woman"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:src="@drawable/ic_woman"
                     android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_woman"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iv_men"
@@ -99,14 +100,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Resultado"/>
+            android:text="Resultado" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:layout_marginHorizontal="@dimen/marginBorder"
+            android:layout_marginTop="4dp"
             android:background="@drawable/bg_card"
             android:elevation="@dimen/elevation">
 
@@ -118,22 +119,45 @@
                     android:id="@+id/tv_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="48sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="8dp"
-                    android:text="0"/>
+                    android:text="0"
+                    android:textSize="48sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/iv_grafic"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/marginBorder"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_grafic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_result"
-                    android:src="@drawable/ic_grafic"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_result" />
+
+                <ImageView
+                    android:id="@+id/transparency"
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:alpha="0.3"
+                    android:background="@drawable/bg_alpha_grafic"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_grafic"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_grafic"
+                    app:layout_constraintStart_toEndOf="@id/iv_meter"
+                    app:layout_constraintTop_toTopOf="@id/iv_grafic" />
+
+                <ImageView
+                    android:id="@+id/iv_meter"
+                    android:layout_width="3.5dp"
+                    android:layout_height="35dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_grafic"
+                    app:layout_constraintEnd_toEndOf="@id/iv_grafic"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/iv_grafic"
+                    app:layout_constraintTop_toTopOf="@id/iv_grafic" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
