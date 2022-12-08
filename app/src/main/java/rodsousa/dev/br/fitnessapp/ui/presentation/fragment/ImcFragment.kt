@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -18,7 +19,6 @@ import rodsousa.dev.br.fitnessapp.data.model.SexSelected.MEN
 import rodsousa.dev.br.fitnessapp.data.model.SexSelected.WOMAN
 import rodsousa.dev.br.fitnessapp.databinding.FragmentImcBinding
 import rodsousa.dev.br.fitnessapp.ui.viewmodel.FitnessViewModel
-
 
 class ImcFragment : Fragment() {
 
@@ -38,6 +38,10 @@ class ImcFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.myToolBar.inflateMenu(R.menu.appbar_imc)
+        binding.myToolBar.setOnMenuItemClickListener{
+            alertDialogImcDescription()
+            false
+        }
 
         selectedSex()
 
@@ -53,12 +57,6 @@ class ImcFragment : Fragment() {
             calculateImcAndPositionIndicatorLayout()
         }
 
-//            val result = calculateImc(weightDouble, heightDouble)
-//
-//            alertDialogMessage(result)
-//
-
-//        }
     }
 
     private fun calculateImcAndPositionIndicatorLayout() {
@@ -75,12 +73,15 @@ class ImcFragment : Fragment() {
 
         val result = calculateImc(weightDouble, heightDouble)
 
+        if (result < 10 || result > 100) {
+            return
+        }
+
         discoverCorrespondingImcFootage(result)
 
         val resultFormated = String.format("%.1f", result)
         binding.tvResult.text = resultFormated
 
-        //            hideKeyboard()
     }
 
     private fun selectedSex() {
@@ -137,34 +138,18 @@ class ImcFragment : Fragment() {
         service.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0)
     }
 
-    //    private fun alertDialogMessage(result: Double) {
-//        AlertDialog.Builder(context)
-//            .setTitle(getString(R.string.imc_response, result))
-//            .setMessage(imcResponse(result))
-//            .setPositiveButton(android.R.string.ok) { dialog, witch ->
-//
-//
-//            }
-//            .create().show()
-//    }
-//
-//    @StringRes
-//    private fun imcResponse(resultCalcImc: Double):Int{
-//        return when {
-//            resultCalcImc < 15.0 -> R.string.imc_severely_low_weight
-//            resultCalcImc < 16.0 -> R.string.imc_very_low_weight
-//            resultCalcImc < 18.5 -> R.string.imc_low_weight
-//            resultCalcImc < 25.0 -> R.string.normal
-//            resultCalcImc < 30.0 -> R.string.imc_high_weight
-//            resultCalcImc < 35.0 -> R.string.imc_so_high_weight
-//            resultCalcImc < 40.0 -> R.string.imc_severely_high_weight
-//            else -> R.string.imc_extreme_weight
-//        }
-//    }
-//
+    private fun alertDialogImcDescription() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.imc)
+            .setMessage(R.string.imc_desc)
+            .setPositiveButton(android.R.string.ok) { _, _ -> }
+            .create().show()
+    }
+
     private fun calculateImc(weight: Double, height: Double) =
-        weight / ( (height/100) * (height/100) )
+        weight / ((height / 100) * (height / 100))
 
     private fun validate(weight: String, height: String, age: String) =
         weight.isBlank() || height.isBlank() || age.isBlank()
+
 }

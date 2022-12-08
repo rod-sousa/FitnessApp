@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="0"
-                    android:textSize="48sp"
+                    android:textSize="32sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -139,9 +139,9 @@
                 <ImageView
                     android:id="@+id/transparency"
                     android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_marginHorizontal="3dp"
-                    android:alpha="0.3"
+                    android:layout_height="0dp"
+                    android:layout_margin="1.5dp"
+                    android:alpha="0.4"
                     android:background="@drawable/bg_alpha_grafic"
                     app:layout_constraintBottom_toBottomOf="@id/iv_grafic"
                     app:layout_constraintEnd_toEndOf="@+id/iv_grafic"
@@ -151,13 +151,14 @@
                 <ImageView
                     android:id="@+id/iv_meter"
                     android:layout_width="3.5dp"
-                    android:layout_height="35dp"
+                    android:layout_height="28dp"
                     android:background="@color/black"
                     app:layout_constraintBottom_toBottomOf="@id/iv_grafic"
                     app:layout_constraintEnd_toEndOf="@id/iv_grafic"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@id/iv_grafic"
                     app:layout_constraintTop_toTopOf="@id/iv_grafic" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
