@@ -7,4 +7,5 @@
     <dimen name="marginComponents">16dp</dimen>
     <dimen name="borderRadius">4dp</dimen>
     <dimen name="elevation">4dp</dimen>
+    <dimen name="margin_color_text">32dp</dimen>
 </resources>

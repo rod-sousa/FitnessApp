@@ -105,7 +105,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_result"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="500dp"
             android:layout_marginHorizontal="@dimen/marginBorder"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_card"
@@ -132,6 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/marginBorder"
                     android:src="@drawable/ic_grafic"
+                    app:layout_constraintBottom_toTopOf="@id/bg_under_weight"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_result" />
@@ -159,6 +160,194 @@
                     app:layout_constraintStart_toStartOf="@id/iv_grafic"
                     app:layout_constraintTop_toTopOf="@id/iv_grafic" />
 
+                <View
+                    android:id="@+id/bg_under_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="@dimen/marginBorder"
+                    app:layout_constraintBottom_toBottomOf="@id/color_under_weight"
+                    app:layout_constraintTop_toBottomOf="@id/iv_grafic" />
+
+                <View
+                    android:id="@+id/color_under_weight"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/marginBorder"
+                    android:background="@color/blue_200"
+                    app:layout_constraintBottom_toBottomOf="@id/bg_under_weight"
+                    app:layout_constraintStart_toStartOf="@id/bg_under_weight"
+                    app:layout_constraintTop_toTopOf="@id/bg_under_weight" />
+
+                <TextView
+                    android:id="@+id/text_under_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_color_text"
+                    android:text="Abaixo do peso"
+                    app:layout_constraintStart_toEndOf="@id/color_under_weight"
+                    app:layout_constraintTop_toTopOf="@id/color_under_weight" />
+
+                <TextView
+                    android:id="@+id/text_metter_under_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginBorder"
+                    android:text="menor que 18.5"
+                    app:layout_constraintEnd_toEndOf="@id/bg_under_weight"
+                    app:layout_constraintTop_toTopOf="@id/text_under_weight" />
+
+                <View
+                    android:id="@+id/bg_normal_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/color_normal_weight"
+                    app:layout_constraintTop_toBottomOf="@id/bg_under_weight" />
+
+                <View
+                    android:id="@+id/color_normal_weight"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/marginBorder"
+                    android:background="@color/green_400"
+                    android:layout_marginVertical="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/bg_normal_weight"
+                    app:layout_constraintStart_toStartOf="@id/bg_normal_weight"
+                    app:layout_constraintTop_toTopOf="@id/bg_normal_weight" />
+
+                <TextView
+                    android:id="@+id/text_normal_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_color_text"
+                    android:text="Peso normal"
+                    app:layout_constraintStart_toEndOf="@id/color_normal_weight"
+                    app:layout_constraintTop_toTopOf="@id/color_normal_weight" />
+
+                <TextView
+                    android:id="@+id/text_metter_normal_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginBorder"
+                    android:text="18.5  -  25"
+                    app:layout_constraintEnd_toEndOf="@id/bg_normal_weight"
+                    app:layout_constraintTop_toTopOf="@id/text_normal_weight" />
+
+                <View
+                    android:id="@+id/bg_overweight"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/color_overweight"
+                    app:layout_constraintTop_toBottomOf="@id/bg_normal_weight" />
+
+                <View
+                    android:id="@+id/color_overweight"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/marginBorder"
+                    android:background="@color/orange_100"
+                    android:layout_marginVertical="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/bg_overweight"
+                    app:layout_constraintStart_toStartOf="@id/bg_overweight"
+                    app:layout_constraintTop_toTopOf="@id/bg_overweight" />
+
+                <TextView
+                    android:id="@+id/text_overweight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_color_text"
+                    android:text="Sobrepeso"
+                    app:layout_constraintStart_toEndOf="@id/color_overweight"
+                    app:layout_constraintTop_toTopOf="@id/color_overweight" />
+
+                <TextView
+                    android:id="@+id/text_metter_overweight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginBorder"
+                    android:text="25  -  30"
+                    app:layout_constraintEnd_toEndOf="@id/bg_overweight"
+                    app:layout_constraintTop_toTopOf="@id/text_overweight" />
+
+                <View
+                    android:id="@+id/bg_obesity"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/color_obesity"
+                    app:layout_constraintTop_toBottomOf="@id/bg_overweight" />
+
+                <View
+                    android:id="@+id/color_obesity"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/marginBorder"
+                    android:background="@color/orange_500"
+                    android:layout_marginVertical="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/bg_obesity"
+                    app:layout_constraintStart_toStartOf="@id/bg_obesity"
+                    app:layout_constraintTop_toTopOf="@id/bg_obesity" />
+
+                <TextView
+                    android:id="@+id/text_obesity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_color_text"
+                    android:text="Obesidade"
+                    app:layout_constraintStart_toEndOf="@id/color_obesity"
+                    app:layout_constraintTop_toTopOf="@id/color_obesity" />
+
+                <TextView
+                    android:id="@+id/text_metter_obesity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginBorder"
+                    android:text="30  -  40"
+                    app:layout_constraintEnd_toEndOf="@id/bg_obesity"
+                    app:layout_constraintTop_toTopOf="@id/text_obesity" />
+
+                <View
+                    android:id="@+id/bg_morbid_obesity"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/color_morbid_obesity"
+                    app:layout_constraintTop_toBottomOf="@id/bg_obesity" />
+
+                <View
+                    android:id="@+id/color_morbid_obesity"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/marginBorder"
+                    android:background="@color/red_500"
+                    android:layout_marginVertical="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/bg_morbid_obesity"
+                    app:layout_constraintStart_toStartOf="@id/bg_morbid_obesity"
+                    app:layout_constraintTop_toTopOf="@id/bg_morbid_obesity" />
+
+                <TextView
+                    android:id="@+id/text_morbid_obesity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_color_text"
+                    android:text="Obesidade mórbida"
+                    app:layout_constraintStart_toEndOf="@id/color_morbid_obesity"
+                    app:layout_constraintTop_toTopOf="@id/color_morbid_obesity" />
+
+                <TextView
+                    android:id="@+id/text_metter_morbid_obesity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginBorder"
+                    android:text="maior que 40"
+                    app:layout_constraintEnd_toEndOf="@id/bg_morbid_obesity"
+                    app:layout_constraintTop_toTopOf="@id/text_morbid_obesity" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

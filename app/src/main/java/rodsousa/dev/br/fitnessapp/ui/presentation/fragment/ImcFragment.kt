@@ -56,7 +56,6 @@ class ImcFragment : Fragment() {
         binding.edtAge.addTextChangedListener {
             calculateImcAndPositionIndicatorLayout()
         }
-
     }
 
     private fun calculateImcAndPositionIndicatorLayout() {
@@ -76,7 +75,6 @@ class ImcFragment : Fragment() {
         if (result < 10 || result > 100) {
             return
         }
-
         discoverCorrespondingImcFootage(result)
 
         val resultFormated = String.format("%.1f", result)
@@ -109,22 +107,68 @@ class ImcFragment : Fragment() {
     }
 
     private fun discoverCorrespondingImcFootage(resultCalcImc: Double) {
+        bgDefinitionDefault()
+
         val resultCalcBiasPercent = when {
-            resultCalcImc < 15.0 -> 0.05f
-            resultCalcImc < 16.0 -> 0.095f
-            resultCalcImc < 18.5 -> 0.14f
-            resultCalcImc < 20.0 -> 0.25f
-            resultCalcImc < 22.5 -> 0.29f
-            resultCalcImc < 25.0 -> 0.35f
-            resultCalcImc < 27.5 -> 0.46f
-            resultCalcImc < 30.0 -> 0.54f
-            resultCalcImc < 35.0 -> 0.68f
-            resultCalcImc < 40.0 -> 0.75f
-            resultCalcImc < 45.0 -> 0.87f
-            resultCalcImc > 45.0 -> 0.95f
+            resultCalcImc < 15.0 -> {
+                binding.bgUnderWeight.setBackgroundResource(R.color.gray_300)
+                0.05f
+            }
+            resultCalcImc < 16.0 -> {
+                binding.bgUnderWeight.setBackgroundResource(R.color.gray_300)
+                0.095f
+            }
+            resultCalcImc < 18.5 -> {
+                binding.bgUnderWeight.setBackgroundResource(R.color.gray_300)
+                0.14f
+            }
+            resultCalcImc < 20.0 -> {
+                binding.bgNormalWeight.setBackgroundResource(R.color.gray_300)
+                0.25f
+            }
+            resultCalcImc < 22.5 -> {
+                binding.bgNormalWeight.setBackgroundResource(R.color.gray_300)
+                0.29f
+            }
+            resultCalcImc < 25.0 -> {
+                binding.bgNormalWeight.setBackgroundResource(R.color.gray_300)
+                0.35f
+            }
+            resultCalcImc < 27.5 -> {
+                binding.bgOverweight.setBackgroundResource(R.color.gray_300)
+                0.46f
+            }
+            resultCalcImc < 30.0 -> {
+                binding.bgOverweight.setBackgroundResource(R.color.gray_300)
+                0.54f
+            }
+            resultCalcImc < 35.0 -> {
+                binding.bgObesity.setBackgroundResource(R.color.gray_300)
+                0.68f
+            }
+            resultCalcImc < 40.0 -> {
+                binding.bgObesity.setBackgroundResource(R.color.gray_300)
+                0.75f
+            }
+            resultCalcImc < 45.0 -> {
+                binding.bgMorbidObesity.setBackgroundResource(R.color.gray_300)
+                0.87f
+            }
+            resultCalcImc > 45.0 -> {
+                binding.bgMorbidObesity.setBackgroundResource(R.color.gray_300)
+                0.95f
+            }
             else -> 0.0f
         }
         setImcChartLayout(resultCalcBiasPercent)
+    }
+
+    private fun bgDefinitionDefault(){
+        binding.bgUnderWeight.background = null
+        binding.bgMorbidObesity.background = null
+        binding.bgNormalWeight.background = null
+        binding.bgObesity.background = null
+        binding.bgOverweight.background = null
     }
 
     private fun setImcChartLayout(bias: Float) {
