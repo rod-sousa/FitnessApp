@@ -63,7 +63,7 @@ class ImcFragment : Fragment() {
         val height = binding.edtHeight.text.toString()
         val age = binding.edtAge.text.toString()
 
-        if (validate(weight, height, age)) {
+        if (validate(weight, height, age) || SexSelected.getSelected().isBlank()) {
             return
         }
         val weightDouble = if (weight.isBlank()) 0.0 else weight.toDouble()
@@ -92,6 +92,7 @@ class ImcFragment : Fragment() {
                 }
             }
             binding.ivMen.setImageResource(SexSelected.selectedSex(MEN)!!)
+            calculateImcAndPositionIndicatorLayout()
         }
 
         binding.ivWoman.setOnClickListener {
@@ -103,6 +104,7 @@ class ImcFragment : Fragment() {
                 }
             }
             binding.ivWoman.setImageResource(SexSelected.selectedSex(WOMAN)!!)
+            calculateImcAndPositionIndicatorLayout()
         }
     }
 
