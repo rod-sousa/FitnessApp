@@ -42,44 +42,90 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/layout_edt_age"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="48dp"
+                    android:hint="@string/age"
+                    android:textColorHint="@color/gray_600"
+                    app:boxStrokeColor="@color/pink_300"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintTextColor="@color/pink_300"
+                    app:layout_constraintBottom_toTopOf="@id/layout_edt_weight"
+                    app:layout_constraintEnd_toStartOf="@id/iv_men"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/edt_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:inputType="number"
+                        android:textColor="@color/pink_300"
+                        android:textCursorDrawable="@color/black"
+                        android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/edt_age"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_edt_weight"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/marginComponents"
-                    android:hint="@string/age"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/edt_weight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginComponents"
                     android:hint="@string/weight"
-                    app:layout_constraintStart_toStartOf="@id/edt_age"
-                    app:layout_constraintTop_toBottomOf="@id/edt_age" />
+                    android:textColorHint="@color/gray_600"
+                    app:boxStrokeColor="@color/pink_300"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintTextColor="@color/pink_300"
+                    app:layout_constraintBottom_toTopOf="@id/layout_edt_height"
+                    app:layout_constraintEnd_toEndOf="@id/layout_edt_age"
+                    app:layout_constraintStart_toStartOf="@id/layout_edt_age"
+                    app:layout_constraintTop_toBottomOf="@id/layout_edt_age">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/edt_height"
-                    android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:inputType="number"
+                        android:textColor="@color/pink_300"
+                        android:textCursorDrawable="@color/black"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_edt_height"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/marginComponents"
-                    android:layout_marginBottom="20dp"
                     android:hint="@string/height"
+                    android:textColorHint="@color/gray_600"
+                    app:boxStrokeColor="@color/pink_300"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintTextColor="@color/pink_300"
+                    android:layout_marginBottom="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/edt_weight"
-                    app:layout_constraintTop_toBottomOf="@id/edt_weight" />
+                    app:layout_constraintEnd_toEndOf="@id/layout_edt_weight"
+                    app:layout_constraintStart_toStartOf="@id/layout_edt_weight"
+                    app:layout_constraintTop_toBottomOf="@id/layout_edt_weight">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_height"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:inputType="number"
+                        android:textColor="@color/pink_300"
+                        android:textCursorDrawable="@color/black"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                 <ImageView
                     android:id="@+id/iv_men"
@@ -91,7 +137,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/iv_woman"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@+id/edt_age"
+                    app:layout_constraintStart_toEndOf="@+id/layout_edt_age"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
@@ -221,9 +267,9 @@
                     android:id="@+id/color_normal_weight"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
+                    android:layout_marginVertical="4dp"
                     android:layout_marginStart="@dimen/marginBorder"
                     android:background="@color/green_400"
-                    android:layout_marginVertical="4dp"
                     app:layout_constraintBottom_toBottomOf="@id/bg_normal_weight"
                     app:layout_constraintStart_toStartOf="@id/bg_normal_weight"
                     app:layout_constraintTop_toTopOf="@id/bg_normal_weight" />
@@ -259,9 +305,9 @@
                     android:id="@+id/color_overweight"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
+                    android:layout_marginVertical="4dp"
                     android:layout_marginStart="@dimen/marginBorder"
                     android:background="@color/orange_100"
-                    android:layout_marginVertical="4dp"
                     app:layout_constraintBottom_toBottomOf="@id/bg_overweight"
                     app:layout_constraintStart_toStartOf="@id/bg_overweight"
                     app:layout_constraintTop_toTopOf="@id/bg_overweight" />
@@ -297,9 +343,9 @@
                     android:id="@+id/color_obesity"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
+                    android:layout_marginVertical="4dp"
                     android:layout_marginStart="@dimen/marginBorder"
                     android:background="@color/orange_500"
-                    android:layout_marginVertical="4dp"
                     app:layout_constraintBottom_toBottomOf="@id/bg_obesity"
                     app:layout_constraintStart_toStartOf="@id/bg_obesity"
                     app:layout_constraintTop_toTopOf="@id/bg_obesity" />
@@ -335,9 +381,9 @@
                     android:id="@+id/color_morbid_obesity"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
+                    android:layout_marginVertical="4dp"
                     android:layout_marginStart="@dimen/marginBorder"
                     android:background="@color/red_500"
-                    android:layout_marginVertical="4dp"
                     app:layout_constraintBottom_toBottomOf="@id/bg_morbid_obesity"
                     app:layout_constraintStart_toStartOf="@id/bg_morbid_obesity"
                     app:layout_constraintTop_toTopOf="@id/bg_morbid_obesity" />
