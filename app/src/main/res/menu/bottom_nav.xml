@@ -2,12 +2,17 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
-        android:id="@+id/home"
-        android:icon="@drawable/ic_home"/>
-
     <item android:title="IMC"
         android:id="@+id/imc"
-        android:icon="@drawable/ic_graphic"/>
+        android:icon="@drawable/ic_imc"
+        />
+
+    <item android:title="Information"
+        android:id="@+id/information"
+        android:icon="@drawable/ic_information"/>
+
+    <item android:title="History"
+        android:id="@+id/history"
+        android:icon="@drawable/ic_history"/>
 
 </menu>

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import rodsousa.dev.br.fitnessapp.R
 import rodsousa.dev.br.fitnessapp.ui.viewmodel.FitnessViewModel
 
-class HomeFragment : Fragment() {
+class MoreInformationFragment : Fragment() {
 
     private lateinit var viewModel: FitnessViewModel
 
@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProvider(this).get(FitnessViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_information, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
