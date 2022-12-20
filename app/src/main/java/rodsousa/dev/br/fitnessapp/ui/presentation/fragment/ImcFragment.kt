@@ -221,9 +221,10 @@ class ImcFragment : Fragment() {
             .setPositiveButton(android.R.string.ok) { _, _ -> }
             .create().show()
     }
-
+/////////////////////////////////////////////////////////
     private fun calculateImc(weight: Double, height: Double) =
         weight / ((height / 100) * (height / 100))
+    //////////////////////////////////////////////////
 
     private fun validate(weight: String, height: String, age: String) =
         weight.isBlank() || height.isBlank() || age.isBlank()
@@ -239,11 +240,8 @@ class ImcFragment : Fragment() {
 
     private fun defaultData(){
         defaultBtnSave()
-
         binding.tvResult.text = "0.0"
-
         bgDefinitionDefault()
-
         setImcChartLayout(0.0f)
     }
 
