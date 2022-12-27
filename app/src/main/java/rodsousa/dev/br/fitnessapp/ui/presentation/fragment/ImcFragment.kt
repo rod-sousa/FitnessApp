@@ -1,5 +1,7 @@
 package rodsousa.dev.br.fitnessapp.ui.presentation.fragment
 
+import android.animation.ValueAnimator
+import android.animation.ValueAnimator.AnimatorUpdateListener
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getColor
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -38,10 +41,12 @@ class ImcFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.myToolBar.inflateMenu(R.menu.appbar_imc)
-        binding.myToolBar.setOnMenuItemClickListener{
+        binding.myToolBar.setOnMenuItemClickListener {
             alertDialogImcDescription()
             false
         }
+
+        defaultBtnSave()
 
         selectedSex()
 
@@ -55,6 +60,10 @@ class ImcFragment : Fragment() {
 
         binding.edtAge.addTextChangedListener {
             calculateImcAndPositionIndicatorLayout()
+        }
+
+        binding.btnSave.setOnClickListener {
+            //TODO alert dialog pegando nome
         }
     }
 
@@ -73,14 +82,28 @@ class ImcFragment : Fragment() {
         val result = calculateImc(weightDouble, heightDouble)
 
         if (result < 2 || result > 100) {
+            defaultData()
             return
         }
 
         discoverCorrespondingImcFootage(result)
 
-        val resultFormated = String.format("%.1f", result)
-        binding.tvResult.text = resultFormated
+        setResultWithAnimation(result)
 
+        enabledBtnSave()
+    }
+
+    private fun setResultWithAnimation(result: Double) {
+        val numberAnimation = ValueAnimator.ofFloat(0.0f, result.toFloat())
+
+        numberAnimation.addUpdateListener{
+            val animatedValue = numberAnimation.animatedValue.toString().toDouble()
+            val resultFormated = String.format("%.1f", animatedValue)
+            binding.tvResult.text = resultFormated
+        }
+
+        numberAnimation.duration = 800
+        numberAnimation.start()
     }
 
     private fun selectedSex() {
@@ -172,7 +195,7 @@ class ImcFragment : Fragment() {
         setImcChartLayout(resultCalcBiasPercent)
     }
 
-    private fun bgDefinitionDefault(){
+    private fun bgDefinitionDefault() {
         binding.bgUnderWeight.background = null
         binding.bgMorbidObesity.background = null
         binding.bgNormalWeight.background = null
@@ -198,11 +221,36 @@ class ImcFragment : Fragment() {
             .setPositiveButton(android.R.string.ok) { _, _ -> }
             .create().show()
     }
-
+/////////////////////////////////////////////////////////
     private fun calculateImc(weight: Double, height: Double) =
         weight / ((height / 100) * (height / 100))
+    //////////////////////////////////////////////////
 
     private fun validate(weight: String, height: String, age: String) =
         weight.isBlank() || height.isBlank() || age.isBlank()
 
+    private fun enabledBtnSave(){
+        val btnSave = binding.btnSave
+        btnSave.isEnabled = true
+        btnSave.setBackgroundResource(R.drawable.bg_btn_enabled)
+
+        val colorBlack = getColor(requireContext(), R.color.black)
+        btnSave.setTextColor(colorBlack)
+    }
+
+    private fun defaultData(){
+        defaultBtnSave()
+        binding.tvResult.text = "0.0"
+        bgDefinitionDefault()
+        setImcChartLayout(0.0f)
+    }
+
+    private fun defaultBtnSave() {
+        val btnSave = binding.btnSave
+        btnSave.isEnabled = false
+        btnSave.setBackgroundResource(R.drawable.bg_btn_disabled)
+
+        val colorGray500 = getColor(requireContext(), R.color.gray_500)
+        btnSave.setTextColor(colorGray500)
+    }
 }

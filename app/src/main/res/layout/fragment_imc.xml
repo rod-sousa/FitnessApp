@@ -43,16 +43,12 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_edt_age"
+                    style="@style/layoutEdt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="48dp"
+                    android:layout_marginEnd="28dp"
                     android:hint="@string/age"
-                    android:textColorHint="@color/gray_600"
-                    app:boxStrokeColor="@color/pink_300"
-                    app:boxStrokeWidth="1dp"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/pink_300"
                     app:layout_constraintBottom_toTopOf="@id/layout_edt_weight"
                     app:layout_constraintEnd_toStartOf="@id/iv_men"
                     app:layout_constraintStart_toStartOf="parent"
@@ -61,26 +57,18 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_age"
+                        style="@style/inputEdt"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:inputType="number"
-                        android:textColor="@color/pink_300"
-                        android:textCursorDrawable="@color/black"
-                        android:textSize="16sp" />
+                        android:layout_height="match_parent" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_edt_weight"
+                    style="@style/layoutEdt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/weight"
-                    android:textColorHint="@color/gray_600"
-                    app:boxStrokeColor="@color/pink_300"
-                    app:boxStrokeWidth="1dp"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/pink_300"
                     app:layout_constraintBottom_toTopOf="@id/layout_edt_height"
                     app:layout_constraintEnd_toEndOf="@id/layout_edt_age"
                     app:layout_constraintStart_toStartOf="@id/layout_edt_age"
@@ -88,27 +76,20 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_weight"
+                        style="@style/inputEdt"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:inputType="number"
-                        android:textColor="@color/pink_300"
-                        android:textCursorDrawable="@color/black"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_edt_height"
+                    style="@style/layoutEdt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/height"
-                    android:textColorHint="@color/gray_600"
-                    app:boxStrokeColor="@color/pink_300"
-                    app:boxStrokeWidth="1dp"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:hintTextColor="@color/pink_300"
                     android:layout_marginBottom="16dp"
+                    android:hint="@string/height"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/layout_edt_weight"
                     app:layout_constraintStart_toStartOf="@id/layout_edt_weight"
@@ -116,12 +97,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_height"
+                        style="@style/inputEdt"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:inputType="number"
-                        android:textColor="@color/pink_300"
-                        android:textCursorDrawable="@color/black"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -408,5 +386,16 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="@dimen/marginBorder"
+            android:layout_marginTop="4dp"
+            android:text="Salvar"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
     </LinearLayout>
 </ScrollView>
